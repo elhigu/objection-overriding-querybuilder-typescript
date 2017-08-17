@@ -6,7 +6,8 @@ class BaseQueryBuilder<T> extends QueryBuilder<T> {
   }
 }
 
-export class BaseModelDollarQueryOverrideTest extends Model {
+// try to override $query() method to return correct query builder
+class BaseModelDollarQueryOverrideTest extends Model {
   static QueryBuilder = BaseQueryBuilder;
   static RelatedQueryBuilder = BaseQueryBuilder;
 
@@ -15,7 +16,8 @@ export class BaseModelDollarQueryOverrideTest extends Model {
   }
 }
 
-export class BaseModelStaticQueryOverrideTest extends Model {
+// try to override static query() method to return correct query builder
+class BaseModelStaticQueryOverrideTest extends Model {
   static QueryBuilder = BaseQueryBuilder;
   static RelatedQueryBuilder = BaseQueryBuilder;
 
@@ -26,6 +28,5 @@ export class BaseModelStaticQueryOverrideTest extends Model {
 
 const testDollar = new BaseModelDollarQueryOverrideTest();
 testDollar.$query().session({});
-
 
 BaseModelStaticQueryOverrideTest.query().session({});
