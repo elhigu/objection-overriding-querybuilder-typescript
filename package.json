@@ -1,0 +1,17 @@
+{
+  "name": "objection-subclassing",
+  "version": "1.0.0",
+  "description": "Test writing and using custom basemodel and querybuilder",
+  "main": "test.ts",
+  "scripts": {
+    "test": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/knex": "0.0.57",
+    "@types/node": "^8.0.23",
+    "knex": "^0.13.0",
+    "objection": "^0.8.7"
+  }
+}

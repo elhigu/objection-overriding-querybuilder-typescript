@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "isolatedModules": false,
+        "outDir": "./build",
+        "rootDir": ".",
+        "sourceMap": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "types": [
+            "node",
+            "objection",
+            "knex"
+        ]
+    }
+}
