@@ -1,4 +1,4 @@
-import { Model, QueryBuilder, QueryBuilderSingle, Transaction } from 'objection';
+import { Model, QueryBuilder, QueryBuilderBase, Transaction } from 'objection';
 
 class BaseQueryBuilder<T> extends QueryBuilder<T> {
   session(session: any) {
@@ -6,12 +6,16 @@ class BaseQueryBuilder<T> extends QueryBuilder<T> {
   }
 }
 
+interface BaseQueryBuilderSingle<T> extends QueryBuilderBase<T>, Promise<T> {
+  session(session: any): this;
+}
+
 // try to override $query() method to return correct query builder
 class BaseModelDollarQueryOverrideTest extends Model {
   static QueryBuilder = BaseQueryBuilder;
   static RelatedQueryBuilder = BaseQueryBuilder;
 
-  $query(trx?: Transaction): BaseQueryBuilder<this> {
+  $query(trx?: Transaction): BaseQueryBuilderSingle<this> {
     return <any> this.$query(trx);
   }
 }
